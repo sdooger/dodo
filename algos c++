@@ -38,7 +38,8 @@ to find some shit in massive
 auto it = find(a.begin(),a.end(), m);
 
 
-
+to erase some certain shit in massive
+myVector.erase(myVector.begin() + min(k, m), myVector.begin() + max(k, m) + 1); 
 
 
 
