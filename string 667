@@ -1,0 +1,103 @@
+sheshes fucking string and his functions:
+
+SWAP fucking strings(XD стринги) between them:
+
+   string s1 ( "blyat" );
+   string s2 ( "suka" );
+   cout << "Before swapping string s1 and s2:" << endl;
+   cout << "The basic_string s1 = " << s1 << "." << endl;
+   cout << "The basic_string s2 = " << s2 << "." << endl;
+
+   swap ( s1 , s2 );
+   cout << "\nAfter swapping string s1 and s2:" << endl;
+   cout << "The basic_string s1 = " << s1 << "." << endl;
+   cout << "The basic_string s2 = " << s2 << "." << endl;
+
+output:
+
+Before swapping string s1 and s2:
+The basic_string s1 = blyat.
+The basic_string s2 = suka.
+
+After swapping string s1 and s2:
+The basic_string s1 = suka.
+The basic_string s2 = blyat.
+
+
+
+EVERYTHING in this shitty code(find,replace,substr,lehgth,size):
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Конкатенация строк
+    string str1 = "Hello";
+    string str2 = " World";
+    string result = str1 + str2;
+    cout << result << endl;  // Выводит "Hello World"
+
+    // Использование оператора +=
+    str1 += " C++";
+    cout << str1 << endl;  // Выводит "Hello C++"
+
+    // Получение длины строки
+    string myString = "Example";
+    cout << "Length: " << myString.length() << endl;  // Выводит "Length: 7"
+    cout << "Size: " << myString.size() << endl;  // Выводит "Size: 7"
+
+    // Извлечение подстроки
+    string original = "Hello, World!";
+    string substring = original.substr(7, 5);
+    cout << substring << endl;  // Выводит ", Wor"
+
+    // Поиск подстроки
+    string searchString = "C++ is fun and C++ is powerful";
+    size_t found = searchString.find("C++");
+    if (found != string::npos) {
+        cout << "Substring found at position " << found << endl;  // Выводит "Substring found at position 0"
+    } else {
+        cout << "Substring not found" << endl;
+    }
+
+    // Замена подстроки
+    string replaceString = "C++ is great!";
+    replaceString.replace(0, 3, "Java");
+    cout << replaceString << endl;  // Выводит "Java is great!"
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
