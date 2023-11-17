@@ -1,1 +1,494 @@
+Laba A
 
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    vector<int> integers(N);
+    for (int i = 0; i < N; ++i) {
+        cin >> integers[i];
+    }
+
+    sort(integers.begin(), integers.end());
+
+    for (int i = 0; i < N; ++i) {
+        cout << integers[i] << " ";
+    }
+
+    return 0;
+}
+
+
+Laba B
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+
+    int n;
+    cin >> n;
+    vector <int> a(n);
+
+    for (int i = 0; i < n; i++) {
+    cin >> a[i];
+    }
+
+    for (int i = n - 1; i >= 0; i--) {
+    cout << a[i] << " ";
+    }
+
+  return 0;
+}
+
+
+Laba C
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> sequence(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> sequence[i];
+    }
+
+    int a, b;
+    cin >> a >> b;
+
+    reverse(sequence.begin() + a, sequence.begin() + b + 1);
+
+    for (int i = 0; i < n; ++i) {
+        cout << sequence[i];
+        if (i < n - 1) {
+            cout << " ";
+        }
+    }
+
+    return 0;
+}
+
+
+Laba D
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    vector<int> myVector(n);
+
+    for(int i = 0; i < n; i++){
+        cin >> myVector[i];
+    }
+    
+    int indexToRemove;
+    cin >> indexToRemove;
+
+    myVector.erase(myVector.begin() + indexToRemove);
+
+    
+    for (int i : myVector) {
+        cout << i << " ";
+    }
+
+    return 0;
+}
+
+
+Laba E
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    vector<int> myVector(n);
+
+    for(int i = 0; i < n; i++){
+        cin >> myVector[i];
+    }
+    
+    int k,m;
+    cin >> k >> m;
+
+    myVector.erase(myVector.begin() + min(k, m), myVector.begin() + max(k, m) + 1);
+    
+    for (int i : myVector) {
+        cout << i << " ";
+    }
+
+    return 0;
+}
+
+
+Laba F
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> a(n);
+
+    for(int i = 0; i < n; i++){
+      cin >> a[i];
+    }
+
+    int index,dobavit;
+    cin >> index >> dobavit;
+    
+    if(index >= 0 && index <= n){
+        a.insert(a.begin()+index, dobavit);
+    }else{
+        return 1;
+    }
+
+
+    for (int i : a) {
+        cout << i << " ";
+    }
+
+
+  return 0;
+}
+
+
+Laba G
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+bool isPrime(int num) {
+    if (num < 2) {
+        return false;
+    }
+
+    for (int i = 2; i <= sqrt(num); ++i) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int countPrimesGreaterThanK(const vector<int>& sequence, int k) {
+    int count = 0;
+
+    for (int num : sequence) {
+        if (num > k && isPrime(num)) {
+            ++count;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> sequence(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> sequence[i];
+    }
+
+    int k;
+    cin >> k;
+
+    int result = countPrimesGreaterThanK(sequence, k);
+    cout << result << endl;
+
+    return 0;
+}
+
+
+Laba H
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> a(n);
+
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+
+    int m;
+    cin >> m;
+
+    if(m > n){
+        return 1;
+    }
+
+    vector<int> sortedVector(a);
+    sort(sortedVector.begin(), sortedVector.end());
+
+   
+    for (int i = 0; i < m; i++) {
+        cout << sortedVector[i] << " ";
+    }
+
+
+    return 0;
+}
+
+
+Laba I
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> a(n);
+
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+
+    int m;
+    cin >> m;
+
+    auto it = find(a.begin(),a.end(), m);
+
+    if(it != a.end()){
+        cout << "Yes";
+    }else{
+        cout << "No";
+    }
+
+
+    return 0;
+}
+
+
+Laba J
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+
+    auto maxElement = max_element(a.begin(), a.end());
+    auto minElement = min_element(a.begin(), a.end());
+
+    int raznica = *maxElement - *minElement;
+
+    cout << raznica;
+
+    
+
+    return 0;
+}
+
+
+Laba K
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> a(n);
+
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
+    }
+
+    int m;
+    cin >> m;
+
+    if(m > n){
+        return 1;
+    }
+
+    vector<int> sortedVector(a);
+    sort(sortedVector.begin(), sortedVector.end(), greater<int>());
+   
+    int sum = 0;
+
+    for (int i = 0; i < m; i++) {
+            sum +=sortedVector[i];
+    }
+
+    cout << sum ;
+
+    return 0;
+}
+
+
+Laba L
+
+#include <iostream>
+#include <unordered_set>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    unordered_set<int> uniqueElements;
+    for (int i = 0; i < n; ++i) {
+        int element;
+        cin >> element;
+        uniqueElements.insert(element);
+    }
+
+    cout << uniqueElements.size() << endl;
+
+    return 0;
+}
+
+
+Laba M
+
+#include <iostream>
+#include <unordered_set>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    unordered_set<int> uniqueElements;
+    for (int i = 0; i < n; ++i) {
+        int element;
+        cin >> element;
+        uniqueElements.insert(element);
+    }
+
+    int sum = 0;
+    for (int uniqueElement : uniqueElements) {
+        sum += uniqueElement;
+    }
+
+    cout << sum << endl;
+
+    return 0;
+}
+
+
+Laba N
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> originalSequence(n);
+    unordered_set<int> uniqueElements;
+
+    for (int i = 0; i < n; ++i) {
+        cin >> originalSequence[i];
+        uniqueElements.insert(originalSequence[i]);
+    }
+
+    vector<int> resultSequence;
+    for (int element : uniqueElements) {
+        if (element % 2 != 0) {
+            resultSequence.push_back(element);
+        }
+    }
+
+    sort(resultSequence.begin(), resultSequence.end());
+
+    for (int i = 0; i < resultSequence.size(); ++i) {
+        cout << resultSequence[i];
+        if (i < resultSequence.size() - 1) {
+            cout << " ";
+        }
+    }
+
+    return 0;
+}
+
+
+Laba O
+
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+
+    unordered_set<char> uniqueLetters;
+    for (char ch : s) {
+        if (isalpha(ch)) {
+            uniqueLetters.insert(tolower(ch));
+        }
+    }
+
+    cout << uniqueLetters.size() << endl;
+
+    vector<char> sortedLetters(uniqueLetters.begin(), uniqueLetters.end());
+    sort(sortedLetters.begin(), sortedLetters.end());
+
+    for (char letter : sortedLetters) {
+        cout << letter << " ";
+    }
+
+    return 0;
+}
+
+
+
+Sundet Aidos 
+17.11.23
+1st year
+Automation and Managment 667
