@@ -1,0 +1,935 @@
+laba A
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+
+
+using namespace std;
+
+struct Point {
+    int x, y;
+
+    bool operator<(const Point& other) const {
+        if (x == other.x) {
+            return y < other.y;
+        }
+        return x < other.x;
+    }
+};
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<Point> points(n);
+
+    for (int i = 0; i < n; ++i) {
+        cin >> points[i].x >> points[i].y;
+    }
+
+    sort(points.begin(), points.end());
+
+    for (const Point& point : points) {
+        cout << point.x << " " << point.y << endl;
+    }
+
+    return 0;
+}
+
+
+laba B
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector <int> norm(n);
+
+    for(int i = 0; i < n; ++i){
+        cin >> norm[i];
+    }
+
+    sort(norm.begin(), norm.begin()+n);
+
+    for(int i = n-1; i >= 0; --i){
+        if((norm[i] % 2) == 0){
+            cout << norm[i] << " ";
+        }
+    }
+
+    for(int i = 0; i < n; ++i){
+        if((norm[i] % 2) != 0){
+            cout << norm[i] << " ";
+        }
+    }
+
+    return 0;
+}
+
+
+laba C
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+
+
+using namespace std;
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::unordered_map<int, int> frequency;
+
+    for (int i = 0; i < n; ++i) {
+        int num;
+        std::cin >> num;
+        frequency[num]++;
+    }
+
+    int count = 0;
+    for (const auto& pair : frequency) {
+        if (pair.second >= 2) {
+            count++;
+        }
+    }
+
+    std::cout << count << std::endl;
+
+    return 0;
+}
+
+
+laba D
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+
+
+using namespace std;
+
+int main() {
+    int n, b;
+    cin >> n >> b;
+
+    int counter = 0;
+
+    vector <int> arr(n);
+
+    for(int i = 0; i < n; ++i){
+        cin >> arr[i];
+    }
+
+    for(int i = 0; i < n; ++i){
+        if(b == arr[i]){
+            counter++;
+        }
+    }
+
+    cout << counter;
+
+    return 0;
+}
+
+
+laba E
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    unordered_map<string, int> counter;
+    for (int i = 0; i < n; ++i) {
+        string number;
+        cin >> number;
+        counter[number]++;
+    }
+
+    int result = 0;
+    for (const auto& pair : counter) {
+        if (pair.second == 3) {
+            result++;
+        }
+    }
+
+    cout << result << endl;
+
+    return 0;
+}
+
+
+laba F
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+#include <stack>
+
+using namespace std;
+
+int main() {
+    string bracketSequence;
+    cin >> bracketSequence;
+
+    stack<char> st;
+
+    for (char bracket : bracketSequence) {
+        if (bracket == '(') {
+            st.push(bracket);
+        } else if (!st.empty() && st.top() == '(') {
+            st.pop();
+        } else {
+            cout << "NO" << endl;
+            return 0;
+        }
+    }
+
+    if (st.empty()) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
+
+laba G
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+#include <stack>
+
+using namespace std;
+
+int main() {
+    string order;
+    cin >> order;
+
+    string result;
+    for (int i = 0; i < order.length(); ++i) {
+        if (i < order.length() - 1 && order[i] == '1' && order[i + 1] == '1') {
+            ++i;
+        } else {
+            result += order[i];
+        }
+    }
+
+    cout << result << endl;
+
+    return 0;
+}
+
+laba H
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::map<std::string, int> firstEntry;
+
+    for (int i = 0; i < n; ++i) {
+        std::string s;
+        std::cin >> s;
+        
+        if (firstEntry.find(s) == firstEntry.end()) {
+            firstEntry[s] = i + 1;
+        }
+    }
+
+    for (const auto& entry : firstEntry) {
+        std::cout << entry.first << " " << entry.second << std::endl;
+    }
+
+    return 0;
+}
+
+
+laba I
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin >> n;
+
+    unordered_set<string> userSet;
+
+    for (int i = 0; i < n; ++i) {
+        string s;
+        cin >> s;
+
+        auto it = userSet.find(s);
+        if (it == userSet.end()) {
+            cout << "new user added" << endl;
+            userSet.insert(s);
+        } else {
+            cout << "user already exists" << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+laba J
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin >> n;
+
+    map<string, int> doramas;
+
+    for (int i = 0; i < n; ++i) {
+        string s;
+        int k;
+        cin >> s >> k;
+        doramas[s] += k;
+    }
+
+    vector<pair<string, int>> sortedDoramas(doramas.begin(), doramas.end());
+    sort(sortedDoramas.begin(), sortedDoramas.end());
+
+    for (const auto& entry : sortedDoramas) {
+        cout << entry.first << " " << entry.second << endl;
+    }
+
+    return 0;
+}
+
+laba K
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+using namespace std;
+
+long long calculateLargestRectangleArea(int heights[], int n) {
+    stack<int> s;
+    long long maxArea = 0;
+
+    for (int i = 0; i < n; ++i) {
+        while (!s.empty() && heights[i] <= heights[s.top()]) {
+            int height = heights[s.top()];
+            s.pop();
+            int width = (s.empty() ? i : i - s.top() - 1);
+            maxArea = max(maxArea, static_cast<long long>(height) * width);
+        }
+        s.push(i);
+    }
+
+    while (!s.empty()) {
+        int height = heights[s.top()];
+        s.pop();
+        int width = (s.empty() ? n : n - s.top() - 1);
+        maxArea = max(maxArea, static_cast<long long>(height) * width);
+    }
+
+    return maxArea;
+}
+
+int main() {
+    int N;
+    cin >> N;
+
+    int heights[N];
+    for (int i = 0; i < N; ++i) {
+        cin >> heights[i];
+    }
+
+    long long result = calculateLargestRectangleArea(heights, N);
+
+    cout << result << endl;
+
+    return 0;
+}
+
+
+laba L
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <array>
+#include <vector>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <cctype>
+#include <set>
+#include <unordered_map>
+#include <map>
+#include <unordered_set>
+#include <stack>
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+bool compare(pair<int, int>& a, pair<int, int>& b) {
+    return (a.first + a.second) < (b.first + b.second);
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<pair<int, int>> arr(n);
+
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i].first >> arr[i].second;
+    }
+
+    vector<int> indices(n);
+    for (int i = 0; i < n; ++i) {
+        indices[i] = i + 1;
+    }
+
+    stable_sort(indices.begin(), indices.end(), [&](int a, int b) {
+        return compare(arr[a - 1], arr[b - 1]);
+    });
+
+    for (int i = 0; i < n; ++i) {
+        cout << indices[i] << " ";
+    }
+
+    return 0;
+}
+
+
+laba M
+
+#include <iostream>
+#include <queue>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    queue<string> boyQueue;
+
+    for (int i = 0; i < n; ++i) {
+        int action;
+        cin >> action;
+
+        if (action == 1) {
+            string name;
+            cin >> name;
+            boyQueue.push(name);
+            cout << boyQueue.front() << endl;
+
+        } else if (action == 2) {
+            if (!boyQueue.empty()) {
+                boyQueue.pop();
+                if (!boyQueue.empty()){
+                    cout << boyQueue.front() << endl;
+                }else{
+                    cout << "queue is empty" << endl;
+                };
+            } else {
+                cout << "queue is empty" << endl;
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+laba N
+
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> A(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> A[i];
+    }
+
+    int count = 0;
+    unordered_set<int> arr(A.begin(), A.end());
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            int xor_result = A[i] ^ A[j];
+            if (arr.find(xor_result) != arr.end()) {
+                ++count;
+            }
+        }
+    }
+
+    cout << count << endl;
+
+    return 0;
+}
+
+
+laba O
+
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+#include <iostream>
+#include <unordered_map>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    unordered_map<string, string> Inf;
+
+    for (int i = 0; i < n; ++i) {
+        string damn, pass;
+        cin >> damn >> pass;
+        Inf[damn] = pass;
+    }
+
+    int m;
+    cin >> m;
+
+    for (int i = 0; i < m; ++i) {
+        string damn, pass;
+        cin >> damn >> pass;
+
+        if (Inf.find(damn) == Inf.end()) {
+            cout << "login error" << endl;
+        } else {
+            if (Inf[damn] != pass) {
+                cout << "password error" << endl;
+            } else {
+                cout << "correct password" << endl;
+            }
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
