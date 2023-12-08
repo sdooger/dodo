@@ -145,12 +145,18 @@ fill(numbers.begin()+3, numbers.end(), 42);
 
 
 
-to rotate shitty evctor massive in certain index:
+to rotate shitty vector massive in certain index:
 //
 rotate(numbers.begin(), numbers.begin() + 5, numbers.end()-1);
 //
 
 
 
-
-
+to remove some consecutive shitty duplicates in vector massive:
+//
+auto new_end = unique(numbers.begin(), numbers.end());
+ 
+    for (auto it = numbers.begin(); it != new_end; ++it) {
+        cout << *it << " ";
+    }
+//
