@@ -1,14 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <iomanip>
+#include <algorithm>
+#include <string>
+#include <bits/stdc++.h>
+
+
+
 to erase some shit in massive:
+//
  myVector.erase(myVector.begin() + *num*);
+//
 
 
 
 to add some shit in massive:
+//
 a.insert(a.begin()+*index*, *number*);
+//
 
 
 
 to find max and min shit in massive
+//
 auto maxElement = max_element(a.begin(), a.end());
 auto minElement = min_element(a.begin(), a.end());
                   ||
@@ -16,60 +31,124 @@ auto minElement = min_element(a.begin(), a.end());
                   \/
 and this is to find the shit that called raznica between them:
 int raznica = *maxElement - *minElement;
+//
 
 
 
 to Reverse some shit in massive:
+//
 for (int i = 0; i < n; i++) {
     cin >> a[i];
 }
 for (int i = n - 1; i >= 0; i--) {
     cout << a[i] << " ";
 }
+//
+
+OR
+
+//
+ reverse(a.begin(), a.end());
+//
 
 
 
 to sort some shit in massive:
-sort(integers.begin(), integers.end());
+//
+sort(integers.begin(), integers.end()); по возрастанию
+
+sort(a.begin(), a.end(), greater<int>()); по убыванию
+//
 
 
 
 to find some shit in massive:
+//
 auto it = find(a.begin(),a.end(), m);
+//
+
 
 
 to erase some certain shit in massive:
+//
 myVector.erase(myVector.begin() + min(k, m), myVector.begin() + max(k, m) + 1); 
+//
+
 
 
 to count some shit with if in massive:
+//
 int countEven = count_if(numbers.begin(), numbers.end(), [](int x) { return x % 2 == 0; });
+//
+
 
 
 to just count some shit:
+//
 int countTwo = count(numbers.begin(), numbers.end(), 2);
+//
 
 
-to transform some shit like to swuare or squareroot some shit in massive:
-transform(numbers.begin(), numbers.end(), std::back_inserter(squaredNumbers), [](int x) { return x * x; });
+
+to transform some shit like to square or squareroot some shit in massive:
+//
+transform(numbers.begin(), numbers.end(), back_inserter(squaredNumbers), [](int x) { return x * x; });
+//
+
 
 
 to just sum some shit:
+//
 int sum = accumulate(numbers.begin(), numbers.end(), 0);
+//
+
 
 
 to find some shit in massive with fucking index:
-cin >> n;
-    auto it = find(numbers.begin(), numbers.end(), n);
+//
+cin >> num;
+    auto it = find(numbers.begin(), numbers.end(), num);
 
     if (it != numbers.end()) {
-        cout << "Value "<< n <<" found at index: " << distance(numbers.begin(), it) << endl;
+        cout << "Value "<< num <<" found at index: " << distance(numbers.begin(), it) << endl;
     } else {
-        cout << "Value 3 not found in the vector." << endl;
+        cout << "Value *num* not found in the vector." << endl;
     }
+//
 
 
 
+to check if the some shit contains the letter 'a' : 
+//
+copy_if(words.begin(), words.end(), back_inserter(result), [](const string& word) {
+        return word.find('a') != string::npos;  
+//
+
+
+
+to make some shit to squared shit for each:
+//  
+for_each(numbers.begin(), numbers.end(), [](int& x) {
+        x = x * x;
+    });
+
+for (int num : numbers) {
+        cout << num << " ";
+    }
+//
+
+
+to fill some shit in vector massive:
+//
+fill(numbers.begin()+3, numbers.end(), 42);
+// 
+
+
+
+to rotate shitty evctor massive in certain index:
+//
+rotate(numbers.begin(), numbers.begin() + 5, numbers.end()-1);
+//
 
 
 
