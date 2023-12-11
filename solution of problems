@@ -1,0 +1,212 @@
+проверяет являеться ли число палиндромным:
+//
+//
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+bool isPalindrome(int n) {
+    string numStr = to_string(n);
+
+    string reversedStr = numStr;
+    reverse(reversedStr.begin(), reversedStr.end());
+
+    return numStr == reversedStr;
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    if (isPalindrome(n)) {
+        cout << number << " - палиндром" << endl;
+    } else {
+        cout << number << " - не палиндром" << endl;
+    }
+
+    return 0;
+}
+//
+//
+
+
+пример кода на C++, который сортирует два вектора и объединяет их в отсортированный вектор
+//
+//
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+
+    int n1;
+    cin >> n1;
+
+    vector<int> vec1(n1);
+    for (int i = 0; i < n1; ++i) {
+        cin >> vec1[i];
+    }
+
+    int n2;
+    cin >> n2;
+
+    vector<int> vec2(n2);
+    for (int i = 0; i < n2; ++i) {
+        cin >> vec2[i];
+    }
+
+    sort(vec1.begin(), vec1.end());
+    sort(vec2.begin(), vec2.end());
+
+    vector<int> mergedVector(n1 + n2);
+    merge(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), mergedVector.begin());
+
+
+    for (const auto& element : mergedVector) {
+        cout << element << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+//
+//
+
+
+all prime numbers from 0 to 100:
+
+2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+
+
+Код для подсчета слов :
+//
+//
+#include <iostream>
+#include <sstream>
+#include <map>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string text;
+    getline(cin, text);
+
+    stringstream ss(text);
+    map<string, int> wordCount; 
+
+    string word;
+    while (ss >> word) {
+        wordCount[word]++;
+    }
+
+    vector<pair<string, int>> sortedWordCount(wordCount.begin(), wordCount.end());
+
+    sort(sortedWordCount.begin(), sortedWordCount.end(), [](const pair<string, int>& a, const pair<string, int>& b)
+          {
+             return (a.second > b.second) || (a.second == b.second && a.first < b.first);
+          });
+
+    for (const auto& entry : sortedWordCount) {
+        cout << entry.first << " : " << entry.second << endl;
+    }
+
+    return 0;
+}
+//
+//
+
+
+код для находа разных вариации слов:
+//
+//
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <iomanip>
+#include <algorithm>
+#include <string>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+
+string s;
+cin >> s;
+
+sort(s.begin(), s.end());
+
+do {
+    cout << s << endl;
+    } while (next_permutation(s.begin(), s.end()));
+
+
+return 0;
+
+}
+//
+//
+
+
+код для нахождения самого длинного слова:
+//
+//
+#include <iostream>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
+string findLongestWord(const string& s) {
+    stringstream ss(s);
+    string Word, Lord;
+
+    while (ss >> Word) {
+        if (Word.size() > Lord.size()) {
+            Lord = Word;
+        }
+    }
+
+    return Lord;
+}
+
+int main() {
+    string input;
+    getline(cin, input);
+
+    string Lord = findLongestWord(input);
+    cout << Lord << endl;
+
+    return 0;
+}
+//
+//
+
+чтобы убрать букву в слове:
+//
+//
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <iomanip>
+using namespace std;
+
+int main(){
+    char  wordtofind;
+    cin >> wordtofind;
+    
+    string S;
+    cin >> S;
+    
+    S.erase(remove(S.begin(), S.end(), wordtofind), S.end());
+    
+    cout << S << endl;
+
+
+    return 0;
+}
+//
+//
+ 
