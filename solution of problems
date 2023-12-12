@@ -29,6 +29,31 @@ int main() {
 }
 //
 //
+#include <iostream>
+#include <vector>
+#include <iomanip>
+#include <algorithm>
+#include <string>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string num;
+    cin >> num;
+
+    string palindromeNum = num;
+
+    reverse(palindromeNum.begin(), palindromeNum.end());
+
+    if(equal(num.begin(), num.end(), palindromeNum.begin())){
+        cout << "palindrome";
+    }else{
+        cout << "shit";
+    }
+    return 0;
+}
+//
+//
 
 
 пример кода на C++, который сортирует два вектора и объединяет их в отсортированный вектор
@@ -78,6 +103,57 @@ int main() {
 all prime numbers from 0 to 100:
 
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+
+
+//
+//
+
+код для нахождения prime значении:
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+
+
+using namespace std;
+
+bool isPrime(int num) {
+    if (num <= 1) {
+        return false;
+    }
+
+    int sqrtNum = sqrt(num);
+    for (int i = 2; i <= sqrtNum; ++i) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int main() {
+    
+    int n;
+    cin >> n;
+
+    vector<int> sequence(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> sequence[i];
+    }
+
+    
+    int primeCount = count_if(sequence.begin(), sequence.end(), [](int num) { return isPrime(abs(num)); });
+
+    
+    cout << primeCount << '\n';
+
+    return 0;
+}
+
+//
+//
 
 
 Код для подсчета слов :
@@ -205,8 +281,40 @@ int main(){
     cout << S << endl;
 
 
-    return 0;
+   
+return 0;
 }
 //
 //
  
+
+код для преобразования числа в бинарное число:
+//
+//
+#include <bits/stdc++.h>
+using namespace std;
+#define pb push_back
+void bin(int x){
+    string bn;
+    while(x){
+        bn += to_string(x%2); x/=2;
+    }
+    reverse(bn.begin(), bn.end());
+    cout<<bn<<"\n";
+}
+int main(){
+    // freopen("ladder.in", "r", stdin);
+    // freopen("ladder.out", "w", stdout);
+    int n;
+    cin>>n;
+    vector<int>d(n);
+    for(int i=0; i<n; i++) cin>>d[i];
+    for_each(d.begin(), d.end(), bin);
+}
+//
+//
+
+
+
+
+
