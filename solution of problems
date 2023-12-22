@@ -56,6 +56,44 @@ int main() {
 //
 
 
+для нахождения фибоначчи:
+//
+//
+#include <iostream>
+#include <vector>
+
+int fibonacci(int n) {
+    if (n <= 1) {
+        return 0;
+    }
+
+    std::vector<int> fib(n + 1, 0);
+    fib[1] = 1;
+
+    for (int i = 2; i <= n; ++i) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    return fib[n];
+}
+
+int main() {
+    
+    int n;
+    cin >> n;
+
+    int result = fibonacci(n);
+    cout << result << endl;
+
+    return 0;
+}
+//
+//
+
+
+
+
+
 пример кода на C++, который сортирует два вектора и объединяет их в отсортированный вектор
 //
 //
