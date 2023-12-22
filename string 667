@@ -1,3 +1,21 @@
+    int count = 0;
+
+    for(char ch : d){
+        size_t found = s.find(ch);
+
+        if(found != string::npos){
+            count++;
+        }
+    }
+
+
+
+
+
+
+
+
+
 sheshes fucking string and his functions:
 
 SWAP fucking strings(XD стринги) between them:
