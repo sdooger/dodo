@@ -396,3 +396,15 @@ for (char& ch : str) {
 //
 //
 
+
+//
+//
+ for(char ch : d){
+        size_t found = s.find(ch);
+
+        if(found != string::npos){
+            count++;
+        }
+    }
+//
+//
