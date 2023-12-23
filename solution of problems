@@ -408,3 +408,13 @@ for (char& ch : str) {
     }
 //
 //
+
+
+
+//
+//
+for(char ch : s){
+        if (isdigit(ch)) {
+            int digit = ch - '0'; 
+//
+//
